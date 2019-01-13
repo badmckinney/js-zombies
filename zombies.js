@@ -284,7 +284,11 @@ function Player(name, health, strength, speed) {
    */
 
   this.useItem = function (item) {
-
+    if (item instanceof Food) {
+      this.eat(item);
+    } else {
+      this.equip(item);
+    }
   }
 
   /**
