@@ -283,6 +283,9 @@ function Player(name, health, strength, speed) {
    * @param {Item/Weapon/Food} item   The item to use.
    */
 
+  this.useItem = function (item) {
+
+  }
 
   /**
    * Player Class Method => equippedWith()
