@@ -183,7 +183,15 @@ function Player(name, health, strength, speed) {
    */
 
   this.discardItem = function (item) {
-
+    let index = this._pack.indexOf(item);
+    if (index === -1) {
+      console.log('Nothing was discarded. Item could not be found');
+      return false;
+    } else {
+      this._pack.splice(index, 1);
+      console.log(this.name + " dropped " + item);
+      return true;
+    }
   }
 
   /**
@@ -206,6 +214,9 @@ function Player(name, health, strength, speed) {
    * @param {Weapon} itemToEquip  The weapon item to equip.
    */
 
+  this.equip = function () {
+
+  }
 
   /**
    * Player Class Method => eat(itemToEat)
