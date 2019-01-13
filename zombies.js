@@ -214,8 +214,22 @@ function Player(name, health, strength, speed) {
    * @param {Weapon} itemToEquip  The weapon item to equip.
    */
 
-  this.equip = function () {
+  this.equip = function (itemToEquip) {
+    let index = this._pack.indexOf(itemToEquip);
 
+    if (itemToEquip instanceof Weapon) {
+      if (index === -1) {
+        console.log('You dont own that weapon');
+      } else if (!this.equipped && index > -1) {
+        this._pack.splice(index, 1);
+        this.equipped = itemToEquip;
+      } else {
+        this._pack.splice(index, 1, this.equipped);
+        this.equipped = itemToEquip;
+      }
+    } else {
+      console.log("You can't equip that");
+    }
   }
 
   /**
@@ -237,6 +251,9 @@ function Player(name, health, strength, speed) {
    * @param {Food} itemToEat  The food item to eat.
    */
 
+  this.eat = function (itemToEat) {
+
+  }
 
   /**
    * Player Class Method => useItem(item)
