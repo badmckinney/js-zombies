@@ -304,7 +304,16 @@ function Player(name, health, strength, speed) {
    * @name equippedWith
    * @return {string/boolean}   Weapon name or false if nothing is equipped.
    */
-
+  this.equippedWith = function () {
+    console.log(this._pack);
+    if (this.equipped !== false) {
+      console.log(this.equipped);
+      return this.equipped.name;
+    } else {
+      console.log(this.equipped);
+      return false;
+    }
+  }
 }
 /**
  * Class => Zombie(health, strength, speed)
