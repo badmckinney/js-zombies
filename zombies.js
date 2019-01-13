@@ -146,7 +146,14 @@ function Player(name, health, strength, speed) {
    */
 
   this.takeItem = function (item) {
-
+    if (this._pack.length === 3) {
+      console.log('Pack is full. Item could not be stored');
+      return false
+    } else {
+      console.log(this.name + " obtained " + item);
+      this._pack.push(item);
+      return true;
+    }
   }
 
   /**
@@ -175,6 +182,9 @@ function Player(name, health, strength, speed) {
    * @return {boolean} true/false     Whether player was able to remove item from pack.
    */
 
+  this.discardItem = function (item) {
+
+  }
 
   /**
    * Player Class Method => equip(itemToEquip)
