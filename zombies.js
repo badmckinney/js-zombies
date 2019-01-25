@@ -130,7 +130,8 @@ class Player {
    */
 
   checkPack() {
-    for (let i = 0; i <= this._pack.length; i++) {
+    let inventory = this.getPack();
+    for (let i = 0; i <= inventory.length; i++) {
       console.log(`${i + 1}. ${this._pack[i]}`);
     }
   };
@@ -154,7 +155,7 @@ class Player {
    */
 
   takeItem(item) {
-    if (this._pack.length === 3) {
+    if (this.getPack().length > 2) {
       console.log('Pack is full. Item could not be stored');
       return false
     } else {
@@ -191,7 +192,7 @@ class Player {
    */
 
   discardItem(item) {
-    let index = this._pack.indexOf(item);
+    let index = this.getPack().indexOf(item);
     if (index === -1) {
       console.log('Nothing was discarded. Item could not be found');
       return false;
@@ -261,7 +262,7 @@ class Player {
 
   eat(itemToEat) {
     if (itemToEat instanceof Food) {
-      let index = this._pack.indexOf(itemToEat);
+      let index = this.getPack().indexOf(itemToEat);
       let maxHealth = this.getMaxHealth();
       if (index === -1) {
         console.log(`You don't have a(n) ${itemToEat}`);
@@ -294,7 +295,7 @@ class Player {
   useItem(item) {
     if (item instanceof Food) {
       this.eat(item);
-    } else {
+    } else if (item instanceof Weapon) {
       this.equip(item);
     }
   };
@@ -314,14 +315,11 @@ class Player {
    */
 
   equippedWith() {
-    console.log(this._pack);
     if (this.equipped !== false) {
-      console.log(this.equipped);
-      //console.log(`${this.name} has a ${this.equipped.name}`);
+      console.log(`${this.name} has a ${this.equipped.name}`);
       return this.equipped.name;
     } else {
-      console.log(this.equipped);
-      // console.log(`${this.name} has nothing equipped`);
+      console.log(`${this.name} has nothing equipped`);
       return false;
     }
   };
