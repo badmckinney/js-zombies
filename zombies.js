@@ -305,7 +305,6 @@ Player.prototype.useItem = function (item) {
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
 Player.prototype.equippedWith = function () {
-  console.log(this._pack);
   if (this.equipped !== false) {
     console.log(`${this.name} has a ${this.equipped.name}`);
     return this.equipped.name;
