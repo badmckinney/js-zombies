@@ -183,7 +183,7 @@ Player.prototype.takeItem = function (item) {
  */
 
 Player.prototype.discardItem = function (item) {
-  let index = this._pack.indexOf(item);
+  let index = this.getPack().indexOf(item);
   if (index === -1) {
     console.log('Nothing was discarded. Item could not be found');
     return false;
@@ -215,7 +215,7 @@ Player.prototype.discardItem = function (item) {
  */
 
 Player.prototype.equip = function (itemToEquip) {
-  let index = this._pack.indexOf(itemToEquip);
+  let index = this.getPack().indexOf(itemToEquip);
 
   if (itemToEquip instanceof Weapon) {
     if (index === -1) {
